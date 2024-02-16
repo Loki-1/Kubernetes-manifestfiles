@@ -1,0 +1,19 @@
+kubectl run webapp-resume --image=lokeshnagam121/maven-webapp-resume --port=8081 -n test-ns     -->  Imperative war
+
+Declarative way
+
+apiVersion: v1
+kind: Pod
+metadata:
+ name: webapp
+ labels:
+   app: webapp-resume
+ namespace: test-ns
+spec:
+  containers:
+  - name: webapp1
+    image: lokeshnagam121/maven-webapp-resume
+    ports:
+    - containerPort: 8082
+
+
