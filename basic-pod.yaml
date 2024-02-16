@@ -15,5 +15,18 @@ spec:
     image: lokeshnagam121/maven-webapp-resume
     ports:
     - containerPort: 8082
-
+    env:
+    - name: <env_var_name>
+      value: <value>
+    - name: <env_var_name>
+      value: <value>
+    resources:
+      requests:
+        cpu: 200m
+        memory: 256mi
+      limits:
+        cpu: 500m
+        memory: 1Gi
+        
+    
 
