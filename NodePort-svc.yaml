@@ -23,7 +23,7 @@ metadata:
  name: webapp-svc
  namespace: test-ns
 spec:
-  type: ClusterIP
+  type: NodePort
   selector:
    app: webapp-resume1
   ports:
