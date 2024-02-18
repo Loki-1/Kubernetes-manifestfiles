@@ -1,3 +1,5 @@
+### Replication Controller Manifest file
+```
 apiVersion: v1
 kind: ReplicationController
 metadata:
@@ -21,7 +23,10 @@ spec:
       - containerPort: 8761
 
 ---
+```
+### basic service manifest file to check replication controller
 
+```
 apiVersion: v1
 kind: Service
 metadata:
@@ -35,5 +40,10 @@ spec:
   - port: 80
     targetPort: 8761
     nodePort: 30001
+```
+ #### The range of NodePort in Kubernetes Cluster must be in 30000 - 32767
 
- # The range of NodePort in Kubernetes Cluster must be in 30000 - 32767
+#### Practical Image
+
+![image](https://github.com/Loki-1/Kubernetes-manifestfiles/assets/134843197/1dc5d20b-aedc-4fcd-9ac5-f1099867e685)
+
