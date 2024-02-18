@@ -37,4 +37,6 @@ spec:
   - port: 8761
     targetPort: 8761
     name: javaapp
+    
+![image](https://github.com/Loki-1/Kubernetes-manifestfiles/assets/134843197/2b0e2934-0ac5-4ea0-9466-509a32dc6063)
 
