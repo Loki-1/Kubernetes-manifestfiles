@@ -17,6 +17,7 @@ spec:
     image: lokeshnagam121/javaproject
     ports:
     - containerPort: 8761
+    
 ---
 # NodePort Service with 2 ports for 2 containers
 
