@@ -7,3 +7,14 @@ metadata:
   namespace: test-ns
   labels:
     app: testapp
+spec:
+  containers:
+  - name: test-container1
+    image: nginx
+    ports:
+    - containerPort: 8080
+  - name: test-container2
+    image: lokeshnagam121/javaproject
+    ports:
+    - containerPort: 8761
+
