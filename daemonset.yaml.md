@@ -5,7 +5,7 @@ kind: DaemonSet
 metadata:
   name: test-ds
   namespace: test-ns
-spec:
+spec: # here we dont see replicas info like rc and rs because it will create a pod per node by default
   selector:
    matchLabels:
     app: test-app
@@ -25,7 +25,7 @@ spec:
 ```
 
 ### basic manifest file for NodePort Service
-
+```
 apiVersion: v1
 kind: Service
 metadata:
@@ -39,5 +39,5 @@ spec:
   - port: 80
     targetPort: 8761
     nodePort: 30096
-
+```
 ![image](https://github.com/Loki-1/Kubernetes-manifestfiles/assets/134843197/e49067e2-6000-4b3f-a496-c2bae653eee4)
