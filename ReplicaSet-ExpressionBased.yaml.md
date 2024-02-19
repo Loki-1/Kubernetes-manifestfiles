@@ -1,5 +1,5 @@
 ### ReplicaSet Expression Based selector manifest file
-
+```
 apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
@@ -27,9 +27,9 @@ spec:
         - containerPort: 8761
 
 ---
-
+```
 ### Nodeport Service manifest file 
-
+```
 apiVersion: v1
 kind: Service
 metadata:
@@ -43,4 +43,4 @@ spec:
   - port: 80
     targetPort: 8761
     nodePort: 30005
-
+```
