@@ -7,7 +7,7 @@ metadata:
   namespace: test-ns
 spec:
   replicas: 2
-  selector:
+  selector: # this selector data basically based on expression it will work for both test-app and test-app2 values
    matchExpressions:
    - key: app
      operator: In
