@@ -1,5 +1,5 @@
 ### Replicaset Manifest File
-
+```
 apiVersion: apps/v1
 kind: ReplicationSet
 metadata:
@@ -7,7 +7,7 @@ metadata:
   namespace: test-ns
 spec:
   replicas: 2
-  selector:
+  selector:  # Mandatory and below selector is equality based selector
    matchLabels:
    - app: test-app
   template: #pod template
@@ -23,6 +23,10 @@ spec:
         - containerPort: 8761
 
 ---
+```
+
+### Nodeport Service manifest file 
+```
 apiVersion: v1
 kind: Service
 metadata:
@@ -35,3 +39,5 @@ spec:
   ports:
   - port: 80
     targetPort: 8761
+    nodePort: 30759
+```
