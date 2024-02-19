@@ -41,3 +41,4 @@ spec:
     targetPort: 8761
     nodePort: 30759
 ```
+![image](https://github.com/Loki-1/Kubernetes-manifestfiles/assets/134843197/feca187d-68f9-411e-b5fb-4b4ab3b88ec9)
