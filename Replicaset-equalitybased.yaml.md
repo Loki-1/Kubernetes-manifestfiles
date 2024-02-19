@@ -1,7 +1,7 @@
 ### Replicaset Manifest File
 ```
 apiVersion: apps/v1
-kind: ReplicationSet
+kind: ReplicaSet
 metadata:
   name: test-rs
   namespace: test-ns
