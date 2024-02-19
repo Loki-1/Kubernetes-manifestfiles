@@ -1,3 +1,5 @@
+### basic deamonset manifest file - it will create pod  per node - if we have 10 nodes then it will create 10 pods ( 1 per node)
+```
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
@@ -20,6 +22,10 @@ spec:
         - containerPort: 8761
 
 ---
+```
+
+### basic manifest file for NodePort Service
+
 apiVersion: v1
 kind: Service
 metadata:
