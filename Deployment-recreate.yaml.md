@@ -1,4 +1,4 @@
-#basic deployment manifest file 
+### basic deployment manifest file 
 ```
 apiVersion: apps/v1
 kind: Deployment
@@ -29,7 +29,7 @@ spec:
 
 ---
 ```
-#basic NodePort Service manifest file
+### basic NodePort Service manifest file
 ```
 apiVersion: v1
 kind: Service
