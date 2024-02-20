@@ -45,6 +45,11 @@ spec:
     targetPort: 8761
     nodePort: 30008
 ```
+
+### Imperative command for deployment :
+
+kubectl set image deployment test-deployment-recreate java-app=test-deployment-recreate:3 -n test-ns
+
 # practical Images
 
     ![image](https://github.com/Loki-1/Kubernetes-manifestfiles/assets/134843197/86768f73-9b4b-49c4-8240-772897c94397)
