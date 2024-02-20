@@ -51,3 +51,4 @@ spec:
     nodePort: 30008
 ```
 ### Practical Images
+![image](https://github.com/Loki-1/Kubernetes-manifestfiles/assets/134843197/653d024d-35f8-4b7b-ab73-5a9b1372ed29)
