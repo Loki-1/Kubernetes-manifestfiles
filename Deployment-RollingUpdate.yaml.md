@@ -1,4 +1,4 @@
-# Basic Rolling Update deployment manifest file
+### Basic Rolling Update deployment manifest file
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -32,7 +32,7 @@ spec:
 
 ---
 
-# basic nodeport service manifest file
+### basic nodeport service manifest file
 
 apiVersion: v1
 kind: Service
@@ -47,3 +47,5 @@ spec:
   - port: 80
     targetPort: 8761
     nodePort: 30008
+
+### Practical Images
