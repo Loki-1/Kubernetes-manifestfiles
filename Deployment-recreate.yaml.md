@@ -1,3 +1,5 @@
+#basic deployment manifest file 
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -27,6 +29,7 @@ spec:
 
 ---
 
+#basic 
 apiVersion: v1
 kind: Service
 metadata:
@@ -40,3 +43,6 @@ spec:
   - port: 80
     targetPort: 8761
     nodePort: 30008
+# practical Images
+    ![image](https://github.com/Loki-1/Kubernetes-manifestfiles/assets/134843197/86768f73-9b4b-49c4-8240-772897c94397)
+
