@@ -70,12 +70,12 @@ spec:
     resource:
         name: cpu
         target:
-          type: Utilization
-          AverageUtilization: 50
+        - type: Utilization
+          averageUtilization: 50
   - type: Resource
     resource:
         name: memory
         target:
-          type: Utilization
-          AverageUtilization: 50
+        - type: Utilization
+          averageUtilization: 50
  ```     
