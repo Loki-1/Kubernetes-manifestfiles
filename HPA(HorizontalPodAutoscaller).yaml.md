@@ -1,4 +1,4 @@
-```
+````
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -31,7 +31,6 @@ spec:
               memory: "256Mi"
 ---
 ```
-```
 apiVersion: v1
 kind: Service
 metadata:
@@ -47,3 +46,4 @@ spec:
     - port: 80
       targetPort: 80
 ```
+````
