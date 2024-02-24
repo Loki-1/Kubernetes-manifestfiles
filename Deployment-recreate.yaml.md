@@ -46,7 +46,7 @@ spec:
     nodePort: 30008
 ```
 
-### Imperative command for deployment :
+### Imperative command for deployment :-
 
 kubectl set image deployment test-deployment-recreate java-app=test-deployment-recreate:3 -n test-ns
 
