@@ -79,3 +79,5 @@ spec:
         - type: Utilization
           averageUtilization: 50
  ```     
+
+### Practical Images:-
