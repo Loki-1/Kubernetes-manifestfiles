@@ -84,4 +84,5 @@ spec:
 
 ![image](https://github.com/Loki-1/Kubernetes-manifestfiles/assets/134843197/ed991474-35fd-41ed-a461-c8bc484074d3)
 ![image](https://github.com/Loki-1/Kubernetes-manifestfiles/assets/134843197/f10f1267-030f-4f1c-a1be-572c37dd005b)
+![image](https://github.com/Loki-1/Kubernetes-manifestfiles/assets/134843197/018abfa1-81f9-42ae-8114-d0334cc075e5)
 
