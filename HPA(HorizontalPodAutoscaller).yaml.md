@@ -53,6 +53,19 @@ spec:
 ```
 ## basic HPA manifest file - manifest file start here
 ```
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: hpa
+  namespace: test-ns
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: test-deployment-recreate
+  minReplicas: 2
+  maxReplicas: 5
+  targetCPUUtilizationPercentage: 50
 
  ```     
 
