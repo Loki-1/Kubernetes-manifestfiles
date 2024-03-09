@@ -53,31 +53,7 @@ spec:
 ```
 ## basic HPA manifest file - manifest file start here
 ```
-apiVersion: autoscaling/v2
-kind: HorizontalPodAutoscaler
-metadata:
-  name: hpadeploymentautoscaler
-  namespace: test-ns
-spec:
-  scaleTargetRef:
-    apiVersion: apps/v1
-    kind: Deployment
-    name: test-deployment-recreate
-  minReplicas: 2
-  maxReplicas: 5
-  metrics:
-  - type: Resource
-    resource:
-        name: cpu
-        target:
-        - type: Utilization
-          averageUtilization: 50
-  - type: Resource
-    resource:
-        name: memory
-        target:
-        - type: Utilization
-          averageUtilization: 50
+
  ```     
 
 ### Practical Images:-
