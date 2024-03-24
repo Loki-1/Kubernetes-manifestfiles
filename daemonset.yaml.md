@@ -1,4 +1,4 @@
-### basic deamonset manifest file - it will create pod  per node - if we have 10 nodes then it will create 10 pods ( 1 per node)
+### basic deamonset manifest file - it will create pod  per node - if we have 10 nodes then it will create 10 pods ( 1 per node).
 ```
 apiVersion: apps/v1
 kind: DaemonSet
