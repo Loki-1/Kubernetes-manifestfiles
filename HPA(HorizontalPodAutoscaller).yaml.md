@@ -1,5 +1,5 @@
 ## HorizontalPodAutoscaller: - 
-
+### Horizontal Pod Autoscaler (HPA) in Kubernetes is a feature that automatically scales the number of pod replicas in a deployment, replication controller, or replica set based on observed CPU utilization or custom metrics. 
 
 
 ### basic deployment manifest file 
