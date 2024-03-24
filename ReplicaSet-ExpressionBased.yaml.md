@@ -1,4 +1,4 @@
-### ReplicaSet Expression Based selector manifest file
+### ReplicaSet Expression Based selector manifest file.
 ```
 apiVersion: apps/v1
 kind: ReplicaSet
