@@ -1,4 +1,4 @@
-### Replicaset Manifest File
+### Replicaset Manifest File.
 ```
 apiVersion: apps/v1
 kind: ReplicaSet
