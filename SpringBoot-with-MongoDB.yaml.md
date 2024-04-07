@@ -35,3 +35,20 @@ spec:
           value: devdb@123
 ---
 ```
+
+```
+apiVersion: v1
+kind: Service
+metadata:
+  name: sb-svc
+  namespace: test-ns
+spec:
+  type: NodePort
+  selector:
+    app: SB-app
+  ports:
+  - port: 80
+    targetPort: 8080
+
+---
+```
