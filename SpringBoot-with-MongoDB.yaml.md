@@ -100,3 +100,8 @@ spec:
   - port: 27017
     targetPort: 27017
 ```
+
+![image](https://github.com/Loki-1/Kubernetes-manifestfiles/assets/134843197/324c03f1-ddbc-4618-9267-40216e256e29)
+
+![image](https://github.com/Loki-1/Kubernetes-manifestfiles/assets/134843197/2894f219-572e-42dd-979e-f077e6566e4b)
+
