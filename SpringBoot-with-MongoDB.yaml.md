@@ -1,3 +1,4 @@
+'''
 apiVersion: apps/v2
 kind: Deployment
 metadata:
@@ -33,4 +34,4 @@ spec:
         - name: MONGO_DB_PASSWORD
           value: devdb@123
 ---
-
+'''
