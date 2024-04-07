@@ -85,5 +85,17 @@ spec:
           value: devdb@123
 
 ---
-
+```
+apiVersion: v1
+kind: Service
+metadata:
+  name: sb-db-svc
+  namespace: test-ns
+spec:
+  type: ClusterIP
+  selector:
+    app: myDB
+  ports:
+  - port: 27017
+    targetPort: 27017
 ```
