@@ -15,6 +15,74 @@
 
 **Performance Bottlenecks:** NFS performance can degrade under heavy load or when transferring large files due to its architecture. Network latency, server load, and disk I/O can all impact performance. Additionally, NFS might not be the best choice for highly I/O intensive workloads.
 
+## Usage:
+
+### Create a server with any configuration as you want for your volume
+
+### enter below commands
+```
+sudo apt install net-tools
+sudo netstat -tunlp      (nfs not installed yet need to install)
+sudo apt-get update
+sudo apt-get install nfs-kernel-server -y
+sudo mkdir -p /mnt/nfs_share
+sudo chmod 777 /mnt/nfs_share
+sudo chown -R nobody:nogroup /mnt/nfs_share/
+sudo apt-get install nfs-common -y
+```
+### Try to add a line in below file using Vi editor
+sudo vi /etc/exports  (add below line at the end of file)
+```
+/mnt/nfs_share/   *(rw,sync,no_subtree_check,no_root_squash)
+```
+### Now enter below commands
+```
+sudo exportfs -a
+sudo systemctl restart nfs-kernel-server
+```
+### Here's a basic example of using a HostPath volume in a Kubernetes Pod manifest:
+```
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: mongo-db
+  namespace: test-ns
+spec:
+  selector:
+    matchLabels:
+      app: myDB
+  template:
+    metadata:
+      name: mongo-db
+      labels:
+        app: myDB
+    spec:
+      containers:
+      - name: mongo-db
+        image: mongo
+        resources:
+          limits:
+            memory: "500Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 27017
+        env:
+        - name: MONGO-INITDB-ROOT-USERNAME
+          value: devdb
+        - name: MONGO-INITDB-ROOT-PASSWORD
+          value: devdb@123
+        volumeMounts:
+        - name: hostpath-volume
+          mountPath: /host-data
+      volumes:
+      - name: hostpath-volume
+        hostPath:
+        path: /var/data
+---
+```
+
+ls /mnt/nfs_share/
+ 
 ### Here's a basic example of using a HostPath volume in a Kubernetes Pod manifest:
 ```
 apiVersion: apps/v1
