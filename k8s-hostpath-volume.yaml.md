@@ -10,6 +10,8 @@
 
 **Resource Competition:** Pods using HostPath volumes may compete with other system processes or workloads for resources like disk I/O, CPU, and memory, leading to performance issues.
 
+
+### Here's a basic example of using a HostPath volume in a Kubernetes Pod manifest:
 ```
 apiVersion: apps/v1
 kind: ReplicaSet
