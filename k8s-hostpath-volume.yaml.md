@@ -1,5 +1,5 @@
 ## I am using Database ReplicaSet for hostpath volume example
-
+```
 apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
@@ -30,15 +30,11 @@ spec:
         - name: MONGO-INITDB-ROOT-PASSWORD
           value: devdb@123
         volumeMounts:
-     - name: hostpath-volume
-      mountPath: /host-data
-
+        - name: hostpath-volume
+          mountPath: /host-data
+      volumes:
+      - name: hostpath-volume
+        hostPath:
+        path: /var/data
 ---
-
-**volumeMounts:
-    - name: hostpath-volume
-      mountPath: /host-data
-  volumes:
-  - name: hostpath-volume
-    hostPath:
-      path: /var/data
+```
