@@ -40,7 +40,7 @@ sudo vi /etc/exports  (add below line at the end of file)
 sudo exportfs -a
 sudo systemctl restart nfs-kernel-server
 ```
-### Here's a basic example of using a HostPath volume in a Kubernetes Pod manifest:
+### Here's a basic example of using a NFS volume in a Kubernetes Pod manifest:
 ```
 apiVersion: apps/v1
 kind: ReplicaSet
@@ -72,55 +72,16 @@ spec:
         - name: MONGO-INITDB-ROOT-PASSWORD
           value: devdb@123
         volumeMounts:
-        - name: hostpath-volume
-          mountPath: /host-data
+        - name: nfs-volume
+          mountPath: /data/db
       volumes:
-      - name: hostpath-volume
-        hostPath:
-        path: /var/data
+      - name: nfs-volume
+        nfs:
+          server:<private_ip-of NFS server>
+          path: /mnt/nfs_share/
 ---
+```  
+### enter below command on the nfs server to check k8s cluster pods data
 ```
-
 ls /mnt/nfs_share/
- 
-### Here's a basic example of using a HostPath volume in a Kubernetes Pod manifest:
 ```
-apiVersion: apps/v1
-kind: ReplicaSet
-metadata:
-  name: mongo-db
-  namespace: test-ns
-spec:
-  selector:
-    matchLabels:
-      app: myDB
-  template:
-    metadata:
-      name: mongo-db
-      labels:
-        app: myDB
-    spec:
-      containers:
-      - name: mongo-db
-        image: mongo
-        resources:
-          limits:
-            memory: "500Mi"
-            cpu: "500m"
-        ports:
-        - containerPort: 27017
-        env:
-        - name: MONGO-INITDB-ROOT-USERNAME
-          value: devdb
-        - name: MONGO-INITDB-ROOT-PASSWORD
-          value: devdb@123
-        volumeMounts:
-        - name: hostpath-volume
-          mountPath: /host-data
-      volumes:
-      - name: hostpath-volume
-        hostPath:
-        path: /var/data
----
-```
-
