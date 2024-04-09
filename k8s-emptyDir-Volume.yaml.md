@@ -5,6 +5,8 @@
 ### EmptyDir volumes are useful when a container needs temporary storage that's shared between containers in the same Pod. For example, you might use an EmptyDir volume to share data between containers in a Pod during the lifetime of a job.
 
 ### The contents of an EmptyDir volume persist across container restarts within the same Pod but are lost when the Pod is deleted or rescheduled to another Node.
+
+## Here's a basic example of using an EmptyDir volume in a Pod manifest:
 ```
 apiVersion: apps/v1
 kind: ReplicaSet
