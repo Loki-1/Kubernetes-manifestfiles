@@ -1,0 +1,27 @@
+Persistent Volumes (PVs):
+
+Think of PVs as virtual disks that are available for use within the Kubernetes cluster.
+Administrators set up PVs by defining the storage type (e.g., NFS, iSCSI), size, access modes, and other parameters in YAML files.
+PVs represent the actual physical or cloud-based storage that is provisioned and managed by the cluster administrator.
+They exist independently of any pods that use them.
+Persistent Volume Claims (PVCs):
+
+PVCs are like requests made by applications (or developers) for storage resources.
+Developers define PVCs in YAML files, specifying the storage requirements such as size, access mode, and storage class.
+When a pod needs storage, it references a PVC rather than directly interacting with a PV.
+Kubernetes dynamically binds PVCs to PVs that match the requested criteria.
+If a suitable PV isn't available, Kubernetes can dynamically provision one based on the PVC specifications.
+Binding of PVCs and PVs:
+
+When a PVC is created, Kubernetes searches for a PV that satisfies the PVC's requirements.
+If a suitable PV is found, the PVC is bound to that PV, and the pod can use the storage.
+If no matching PV exists, and the storage class allows dynamic provisioning, Kubernetes automatically provisions a new PV that matches the PVC's requirements.
+Usage in Pods:
+
+Pods consume storage through PVCs.
+Inside the pod's YAML definition, developers specify the PVC they want the pod to use.
+Kubernetes ensures that the pod has access to the storage provided by the bound PV.
+Storage Lifecycle Management:
+
+Administrators manage the lifecycle of PVs, including provisioning, resizing, and deletion.
+Developers manage PVCs, creating, deleting, and modifying them as needed for their applications.
