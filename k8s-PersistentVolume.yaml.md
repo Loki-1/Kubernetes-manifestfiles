@@ -90,6 +90,7 @@ spec:
         path: /var/data
 ---
 ```
+![image](https://github.com/Loki-1/Kubernetes-manifestfiles/assets/134843197/65528f53-f8ab-4671-808e-11adca75d03a)
 
 
 Binding of PVCs and PVs:
