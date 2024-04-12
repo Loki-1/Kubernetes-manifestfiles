@@ -49,6 +49,7 @@ Developers define PVCs in YAML files, specifying the storage requirements such a
 When a pod needs storage, it references a PVC rather than directly interacting with a PV.
 Kubernetes dynamically binds PVCs to PVs that match the requested criteria.
 If a suitable PV isn't available, Kubernetes can dynamically provision one based on the PVC specifications based on storage class.
+One PVC can connect with one PV at a time. 
 
 ```
 apiVersion: apps/v1
@@ -89,6 +90,8 @@ spec:
         path: /var/data
 ---
 ```
+
+
 Binding of PVCs and PVs:
 
 When a PVC is created, Kubernetes searches for a PV that satisfies the PVC's requirements.
