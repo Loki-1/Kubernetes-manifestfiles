@@ -121,7 +121,8 @@ Administrators manage the lifecycle of PVs, including provisioning, resizing, an
 Developers manage PVCs, creating, deleting, and modifying them as needed for their applications.
 
 #### Kubernetes Commands:-
-
+```
 Kubectl get pv
 Kubectl get pvc
 kubectl get storageclass
+```
