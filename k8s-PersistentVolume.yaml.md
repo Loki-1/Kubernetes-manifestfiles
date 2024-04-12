@@ -11,7 +11,7 @@ We can create PV's in 2 ways
 1.Static Volumes 
 2.Dynamic Volumes
 
-### 1. Static Volume: 
+### 1. Static Persistent Volume: 
 
 Static PVs are provisioned manually by the cluster administrator.
 Administrators create PV objects in advance, specifying details such as storage type, size, access modes, and other parameters.
@@ -36,7 +36,7 @@ spec:
     server: <server-ip/domain>
     path: /path/to/nfs/share
 ```
-### Dynamic Persistent Volumes (PVs):
+### 2. Dynamic Persistent Volumes (PVs):
 
 Dynamic PVs are provisioned automatically by Kubernetes in response to Persistent Volume Claims (PVCs).
 When a PVC is created, Kubernetes matches it with a suitable storage class that defines how to provision storage dynamically.
