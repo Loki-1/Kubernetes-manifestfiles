@@ -1,3 +1,4 @@
+![image](https://github.com/Loki-1/Kubernetes-manifestfiles/assets/134843197/65528f53-f8ab-4671-808e-11adca75d03a)
 ## Persistent Volumes (PVs):
 
 **Think of PVs as virtual disks ( Storage resources) that are available for use within the Kubernetes cluster.
@@ -51,6 +52,7 @@ When a pod needs storage, it references a PVC rather than directly interacting w
 Kubernetes dynamically binds PVCs to PVs that match the requested criteria.
 If a suitable PV isn't available, Kubernetes can dynamically provision one based on the PVC specifications based on storage class.
 One PVC can connect with one PV at a time. 
+NameSpace Specific
 
 ```
 apiVersion: apps/v1
@@ -71,10 +73,6 @@ spec:
       containers:
       - name: mongo-db
         image: mongo
-        resources:
-          limits:
-            memory: "500Mi"
-            cpu: "500m"
         ports:
         - containerPort: 27017
         env:
@@ -83,15 +81,26 @@ spec:
         - name: MONGO-INITDB-ROOT-PASSWORD
           value: devdb@123
         volumeMounts:
-        - name: hostpath-volume
-          mountPath: /host-data
+        - name: mongo-db
+          mountPath: /data/db
       volumes:
-      - name: hostpath-volume
-        hostPath:
-        path: /var/data
+      - name: mongo-db
+        PersistentVolumeClaim:
+         claimName: my-pvc
 ---
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: my-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
 ```
-![image](https://github.com/Loki-1/Kubernetes-manifestfiles/assets/134843197/65528f53-f8ab-4671-808e-11adca75d03a)
+
 
 
 ### Binding of PVCs and PVs:
@@ -110,3 +119,9 @@ Kubernetes ensures that the pod has access to the storage provided by the bound 
 
 Administrators manage the lifecycle of PVs, including provisioning, resizing, and deletion.
 Developers manage PVCs, creating, deleting, and modifying them as needed for their applications.
+
+#### Kubernetes Commands:-
+
+Kubectl get pv
+Kubectl get pvc
+kubectl get storageclass
