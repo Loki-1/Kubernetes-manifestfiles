@@ -92,12 +92,12 @@ spec:
             - name: NFS_SERVER # do not change
               value: 172.31.37.244 # Ip of the NFS SERVER
             - name: NFS_PATH # do not change
-              value: /mnt/share # path to nfs directory setup
+              value: /mnt/nfs_share # path to nfs directory setup
       volumes:
        - name: nfs-provisioner-v # same as volumemouts name
          nfs:
-           server: 172.31.37.244
-           path:  /mnt/share   
+           server: 172.31.37.244 # Ip of the NFS SERVER
+           path:  /mnt/nfs_share   # Path of volume in NFS Server
 ---
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
