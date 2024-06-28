@@ -108,3 +108,56 @@ metadata:
 provisioner: nfs-provisioner # name can be anything
 parameters:
   archiveOnDelete: "false"
+
+
+---
+
+This YAML configuration sets up an NFS (Network File System) provisioner in a Kubernetes cluster, allowing dynamic provisioning of NFS-backed Persistent Volumes (PVs). Here’s a brief overview of the components defined in this YAML file:
+
+ServiceAccount:
+Defines a ServiceAccount named nfs-pod-provisioner-sa in the kube-system namespace.
+
+ClusterRole:
+Creates a ClusterRole nfs-provisioner-clusterRole with permissions to manage persistent volumes, persistent volume claims, storage classes, and events.
+
+ClusterRoleBinding:
+Binds the nfs-provisioner-clusterRole ClusterRole to the nfs-pod-provisioner-sa ServiceAccount.
+
+Role:
+Defines a Role nfs-pod-provisioner-otherRoles in the kube-system namespace with permissions to manage endpoints.
+
+RoleBinding:
+Binds the nfs-pod-provisioner-otherRoles Role to the nfs-pod-provisioner-sa ServiceAccount.
+
+Deployment:
+Creates a Deployment named nfs-pod-provisioner in the kube-system namespace. This deployment uses the Docker image rkevin/nfs-subdir-external-provisioner:fix-k8s-1.20 and sets up necessary environment variables and volume mounts to connect to the NFS server.
+
+StorageClass:
+Defines a StorageClass named nfs-storageclass which uses the nfs-provisioner provisioner. This class is set as the default storage class for the cluster.
+
+Key Points:
+ServiceAccount: nfs-pod-provisioner-sa ensures that the provisioner pod has the necessary permissions.
+ClusterRole and ClusterRoleBinding: Grants cluster-wide permissions for managing PVs and PVCs.
+Role and RoleBinding: Grants namespace-specific permissions for managing endpoints.
+Deployment: Defines the NFS provisioner pod which will handle dynamic provisioning of NFS PVs.
+StorageClass: Allows PVCs to request NFS-backed storage using nfs-storageclass.
+
+
+Environment Variables:
+PROVISIONER_NAME: Should match the provisioner name used in the StorageClass.
+NFS_SERVER: IP address of the NFS server.
+NFS_PATH: Path on the NFS server where volumes are stored.
+
+
+Usage:
+Deploy this configuration to set up NFS dynamic provisioning in your Kubernetes cluster.
+Create PVCs that reference the nfs-storageclass to dynamically provision NFS-backed PVs.
+Make sure to replace the NFS server IP (172.31.37.244) and NFS path (/mnt/nfs_share) with your actual NFS server details.
+
+
+
+
+
+
+
+
