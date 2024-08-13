@@ -16,7 +16,7 @@ spec:
   minReadySeconds: 30
   selector:
     matchLabels:
-      app: test-app
+      app: test-ap
   template:
     metadata:
       labels:
