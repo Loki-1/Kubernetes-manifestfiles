@@ -66,6 +66,8 @@ spec:
   hostPath:
     path: /tmp
 ---
+#Persistent volume claim yaml
+
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
