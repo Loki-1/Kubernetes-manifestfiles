@@ -29,7 +29,7 @@ jobs:
     - name: Run tests
       run: npm test || echo "No tests configured"
       
-    - name: Build project
+    - name: Builder buildest project
       run: npm run build || echo "No build script configured"
       
     - name: Upload build artifacts
